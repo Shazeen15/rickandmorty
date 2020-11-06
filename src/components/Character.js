@@ -4,43 +4,53 @@ import axios from 'axios';
 import styled from 'styled-components'
 import CharCard from './CharCard'
 import Header from './Header'
-
-
-const Card = styled.section`
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; */
-    width: 50%;
-    margin: 2% auto;
-`;
-
+import CharacterDetails from './CharacterDetails'
 
 const Character = (props) => {
     const [characters, setCharacters] = useState([]);
+    const [currentCharacterId, setCurrentCharacterId] = useState("1");
+    const[page, setPage] = useState('1');
 
+    const openDetails = (id) => {
+        setCurrentCharacterId(id);
+    };
+
+    const closeDetails = () => {
+        setCurrentCharacterId(null);
+    };
+
+    let characterLink = `https://rickandmortyapi.com/api/character/?page=${page}`;
+    console.log(characterLink)
     const EffectFn = () => {
-        axios.get('https://rickandmortyapi.com/api/character')
+        axios.get(characterLink)
         .then((res) => {
             let CharList = res.data.results;
-            console.log(CharList);
             setCharacters(CharList);
+            console.log(CharList);
         })
         .catch((err) => {
             return err;
         })
     }
-    useEffect(EffectFn, [])
+    useEffect(EffectFn, [page]);
 
+    const nextPage = () => {
+        setPage(Number(page) + 1);
+    }
     return (
         <div>
             <Header/>
-            <Card>
+            <div>
                 {characters.map(
                     (char) => {
-                        return <CharCard key={char.id} characters={char}/>
+                        return <CharCard key={char.id} characters={char} action={openDetails}/>
                     }
                 )}
-            </Card>
+                {currentCharacterId && (
+                <CharacterDetails characterId={currentCharacterId} close={closeDetails} />
+                )}
+                <button onClick={nextPage}>Next Page</button>
+            </div>
             
         </div>
     )

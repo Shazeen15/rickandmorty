@@ -1,56 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const InfoCard = styled.div`
-    display: flex;
-    margin: 2%;
-    padding: 2%;
-    background: #95A068;
-    border-radius: 10px;
+const Name = styled.div`
 
-    @media (max-width: 500px){
-        display: flex;
-        flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+
+p{
+    font-size: 1.2rem;
+    color: #002400;
+    margin: 5px;
     }
+
+button{
+    background-color: #7B904B;
+    color: #D4E4BC;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 10px;
+    font-size: 1.05rem;
+}
 `;
 
-const Information = styled.section`
-    margin: 5%;
-    width: 100%;
-`;
 
-const ImgSection = styled.section`
-    display: flex;
-    align-items: center;
-`;
-
-
-const Img = styled.img`
-    width: 100%;
-`;
-
-const P = styled.p`
-    padding-top: 2%;
-    color: #C9F3D2;
-`;
-
-const CharCard = ({characters}) => {
-    console.log(characters.name)
+const CharCard = ({characters, action}) => {
 
     return (
-        <InfoCard>
-            <ImgSection>
-                <Img src={characters.image} alt=""/>
-            </ImgSection>
-            <Information>
-                <P>Name: {characters.name}</P>
-                <P>Status: {characters.status}</P>
-                <P>Species: {characters.species}</P>
-                <P>Type: {characters.type}</P>
-                <P>Gender: {characters.gender}</P>  
-            </Information>
+        <div>
+            <Name>
+                <p>{characters.name}</p>
+                <button onClick={() => action(characters.id)}>See details</button>
+            </Name>
             
-        </InfoCard>
+        </div>
     )
 }
 

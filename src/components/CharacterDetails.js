@@ -22,13 +22,26 @@ const Details = styled.div`
     }
 
     button{
-    background-color: #D4E4BC;
-    color: #002400;
-    border: none;
-    border-radius: 10px;
-    margin: 5px 10px;
-    font-size: 1.05rem;
-}
+        /* background-color: #D4E4BC;
+        color: #002400;
+        border: none;
+        border-radius: 10px;
+        margin: 5px 10px;
+        font-size: 1.05rem; */
+        
+        color: #002400;
+        font-size: 1.05rem;
+        margin: 5px 10px;
+        border: 1px solid lightgray;
+        background-color: #D4E4BC;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    button:hover{
+        background-color: #623B5A;
+        color: #EDFFAB;
+    }
 `;
 
 export default function CharacterDetails({characterId, close}){

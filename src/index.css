@@ -52,3 +52,9 @@ body {
   font-family: sans-serif;
   background: #B6E4FE;
 }
+
+*:focus {
+    outline: 0 !important;
+}
+
+

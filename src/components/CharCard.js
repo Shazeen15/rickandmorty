@@ -14,13 +14,24 @@ p{
     }
 
 button{
-    background-color: #7B904B;
+    /* background-color: #7B904B;
     color: #D4E4BC;
     border: none;
     border-radius: 10px;
     margin: 5px 10px;
+    font-size: 1.05rem; */
+    color: #D4E4BC;
     font-size: 1.05rem;
+    margin: 5px 10px;
+    border: 1px solid lightgray;
+    background-color: #7B904B;
+    padding: 10px;
+    border-radius: 4px; 
 }
+button:hover{
+        background-color: #623B5A;
+        color: #EDFFAB;
+    }
 `;
 
 

@@ -6,14 +6,19 @@ import CharCard from './CharCard'
 import Header from './Header'
 import CharacterDetails from './CharacterDetails'
 
-const Button = styled.button`
-    text-align: center;
-    background-color: #7B904B;
-    color: #D4E4BC;
-    border: none;
-    border-radius: 10px;
-    margin: 5px 10px;
-    font-size: 1.05rem;
+const BtnContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        background-color: #7B904B;
+        color: #D4E4BC;
+        border: none;
+        border-radius: 10px;
+        margin: 5px 10px;
+        font-size: 1.05rem;
+    }
+
 `;
 
 const Character = (props) => {
@@ -44,13 +49,21 @@ const Character = (props) => {
     }
     useEffect(EffectFn, [page]);
 
+    const previousPage = () => {
+        setPage(Number(page) - 1);
+    }
+
     const nextPage = () => {
         setPage(Number(page) + 1);
     }
     return (
         <div>
             <Header/>
-            <Button onClick={nextPage}>Next Page</Button>
+            <BtnContainer>
+                <button onClick={previousPage}>Previous Page</button>
+                <button onClick={nextPage}>Next Page</button>
+            </BtnContainer>
+            
             <div>
                 {characters.map(
                     (char) => {

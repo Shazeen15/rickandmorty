@@ -60,7 +60,7 @@ export default function CharacterDetails({characterId, close}){
                         <p>Name: {details.name}</p>
                         <p>Status: {details.status}</p>
                         <p>Species: {details.species}</p>
-                        <p>Type: {details.type}</p>
+                        <p style={{display: !details.type && "none"}}>Type: {details.type}</p>
                         <p>Gender: {details.gender}</p>
                     </div>
                 }

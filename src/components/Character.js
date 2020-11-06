@@ -18,11 +18,11 @@ const BtnContainer = styled.div`
         margin: 5px 10px;
         font-size: 1.05rem;
         outline:none; */
-        color: #D4E4BC;
         font-size: 1.05rem;
         margin: 5px 10px;
         border: 1px solid lightgray;
         background-color: #7B904B;
+        color: #D4E4BC;
         padding: 10px;
         border-radius: 4px; 
     }

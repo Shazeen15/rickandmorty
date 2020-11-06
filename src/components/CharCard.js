@@ -20,12 +20,13 @@ button{
     border-radius: 10px;
     margin: 5px 10px;
     font-size: 1.05rem; */
-    color: #D4E4BC;
+
     font-size: 1.05rem;
     margin: 5px 10px;
     border: 1px solid lightgray;
     background-color: #7B904B;
-    padding: 10px;
+    color: #D4E4BC;
+    padding: 5px;
     border-radius: 4px; 
 }
 button:hover{

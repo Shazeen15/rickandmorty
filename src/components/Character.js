@@ -6,6 +6,16 @@ import CharCard from './CharCard'
 import Header from './Header'
 import CharacterDetails from './CharacterDetails'
 
+const Button = styled.button`
+    text-align: center;
+    background-color: #7B904B;
+    color: #D4E4BC;
+    border: none;
+    border-radius: 10px;
+    margin: 5px 10px;
+    font-size: 1.05rem;
+`;
+
 const Character = (props) => {
     const [characters, setCharacters] = useState([]);
     const [currentCharacterId, setCurrentCharacterId] = useState("1");
@@ -40,16 +50,18 @@ const Character = (props) => {
     return (
         <div>
             <Header/>
+            <Button onClick={nextPage}>Next Page</Button>
             <div>
                 {characters.map(
                     (char) => {
                         return <CharCard key={char.id} characters={char} action={openDetails}/>
                     }
                 )}
+                
                 {currentCharacterId && (
                 <CharacterDetails characterId={currentCharacterId} close={closeDetails} />
                 )}
-                <button onClick={nextPage}>Next Page</button>
+                
             </div>
             
         </div>
